@@ -85,9 +85,7 @@ function deleteCompleted() {
     ></TaskItem>
 
     <div class="flex space-x-1 mt-2">
-      <KButton class="flex-1" @click="deleteCompleted">
-        Clear Completed
-      </KButton>
+      <KButton class="flex-1" @click="deleteCompleted"> Clear </KButton>
       <KButton class="flex-1" @click="deleteAll"> Clear All </KButton>
     </div>
     <div class="mt-2">Pending Task : {{ items.length }}</div>
