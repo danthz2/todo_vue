@@ -3,11 +3,25 @@ import './style.css'
 import App from './App.vue'
 import { createRouter, createWebHistory } from 'vue-router'
 import Task from './components/Task.vue'
+import { createPinia } from 'pinia'
+import UpdateTask from './components/UpdateTask.vue'
 
 const routes = [
     {
         path: '/',
-        component: Task,
+        children: [
+            {
+                path: "",
+                component: Task
+            },
+            {
+                name: 'task-edit',
+                path: "edit/:id",
+                component: UpdateTask,
+                props: true
+            },
+
+        ]
     }
 ]
 
@@ -16,5 +30,7 @@ const router = createRouter({
     history: createWebHistory()
 });
 
+const pinia = createPinia();
 
-createApp(App).use(router).mount('#app')
+
+createApp(App).use(router).use(pinia).mount('#app')
